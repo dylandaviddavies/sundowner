@@ -1,0 +1,19 @@
+@function color($color) {
+    @return var(--color-#{$color});
+}
+
+@function dark-color($color) {
+    @return var(--color-#{$color}-dark);
+}
+
+@function img($img) {
+    @return var(--img-#{$img});
+}
+
+@function font($font) {
+    @return map-get($fonts, $font);
+}
+
+@function font-size($size) {
+    @return map-get($font-sizes, $size);
+}

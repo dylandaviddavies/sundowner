@@ -1,0 +1,54 @@
+@import url(https://fonts.googleapis.com/css2?family=Roboto&display=swap);
+
+$fonts: (
+    body: 'Roboto',
+    heading: 'Roboto',
+    button: 'Roboto'
+);
+
+$font-sizes: (
+    body: 1.6rem,
+    h1: 3.2rem,
+    h2: 3rem,
+    h3: 2.8rem,
+    h4: 2.6rem,
+    h5: 2.4rem
+);
+
+$colors: (
+    bg,
+    primary,
+    text,
+    text-secondary,
+); 
+
+$imgs: (
+    hero
+); 
+
+$themes: (
+    light: (
+        color: (
+            bg: #fff,
+            primary: #08c,
+            primary-dark: darken(#08c, 10%),
+            text: #2b2b2b,
+            text-secondary: #999,
+        ),
+        img: (
+            hero: url('../assets/img/hero-light.svg'),
+        )
+    ),
+    dark: (
+        color: (
+            bg: #1d1d1d,
+            primary: #ce6814,
+            primary-dark: darken(#ce6814, 10%),
+            text: #fff,
+            text-secondary: #999,
+        ),
+        img: (
+            hero: url('../assets/img/hero-dark.svg'),
+        )
+    ),
+);

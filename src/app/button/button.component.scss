@@ -1,0 +1,22 @@
+@import '../../styles/utils';
+
+.app-btn {
+    border-radius: 3rem;
+    border:none;
+    box-sizing: border-box;
+    padding: .6rem 1.8rem;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing:.1rem;
+    font-weight:bold;
+    transition: color .2s, background-color .2s;
+    @each $k in $colors {
+        &-#{$k} {
+            background-color: color($k);
+            color:#fff;
+            @include hover-active-focus {
+                background-color: dark-color($k);
+            }
+        }
+    }
+}

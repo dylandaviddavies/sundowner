@@ -1,0 +1,21 @@
+body {
+    background-color: color(bg);
+    transition: color .2s, background-color .2s;
+    color: color(text);
+    font-size: font-size(body);
+}
+
+html,body {
+    margin:0;
+    height:100%;
+}
+
+* {
+    &:focus,&:active {
+        outline: none;
+    }    
+}
+
+button {
+    cursor: pointer;
+}

@@ -1,0 +1,5 @@
+@each $k, $v in $themes {
+    html[data-theme='#{$k}'] {
+        @include define-theme-variables($v);
+    }
+}

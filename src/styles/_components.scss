@@ -1,0 +1,17 @@
+@each $k, $v in $fonts {
+    .font-#{$k} {
+        font-family: $k;
+    }
+}
+
+@each $k, $v in $colors {
+    .color-#{$k} {
+        font-family: color($k);
+    }
+}
+
+@each $k, $v in $font-sizes {
+    .text-#{$k} {
+        font-size: font-size($k);
+    }
+}

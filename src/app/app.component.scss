@@ -1,0 +1,17 @@
+@import '../styles/utils';
+
+main {
+    display: flex;
+    justify-content:center;
+    text-align:center;
+}
+
+.app-hero-img {
+    background-image: img(hero);
+    background-size:contain;
+    background-repeat:no-repeat;
+    background-position: center;
+    height:20rem;
+    width:20rem;
+    margin: 0 auto;
+}

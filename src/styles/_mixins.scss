@@ -1,0 +1,13 @@
+@mixin define-theme-variables($types) {
+    @each $k, $v in $types {
+       @each $k2, $v2 in $v {
+            --#{$k}-#{$k2}: #{$v2};    
+       } 
+    }
+}
+
+@mixin hover-active-focus {
+    &:hover,&:active,&:focus {
+        @content;
+    }
+}
