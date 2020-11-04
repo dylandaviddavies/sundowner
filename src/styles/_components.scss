@@ -6,7 +6,7 @@
 
 @each $k, $v in $colors {
     .color-#{$k} {
-        font-family: color($k);
+        color: color($k);
     }
 }
 
