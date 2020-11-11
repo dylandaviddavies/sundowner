@@ -156,7 +156,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@import \"../../styles/utils\";\r\n\r\n@mixin loading-button($color) {\r\n  padding-left: 3.5rem;\r\n  &:before {\r\n    content: \"\";\r\n    position: absolute;\r\n    border: 0.25rem solid color($color);\r\n    border-right-color: transparent;\r\n    border-radius: 100%;\r\n    width: 0.75rem;\r\n    height: 0.75rem;\r\n    left: 2.3rem;\r\n    right: auto;\r\n    animation: spin 0.8s linear infinite;\r\n  }\r\n}\r\n\r\n@mixin fill-button($base, $text) {\r\n  background-color: color($base);\r\n  border-color: color($base);\r\n  color: color($text);\r\n  &:not(:disabled) {\r\n    @include hover-active-focus {\r\n      background-color: dark-color($base);\r\n      border-color: dark-color($base);\r\n    }\r\n  }\r\n}\r\n\r\n@mixin outline-button($base, $text) {\r\n  border-color: color($base);\r\n  color: color($text);\r\n  background: none;\r\n}\r\n\r\n.app-btn {\r\n  $root: &;\r\n  border-radius: 0.55rem;\r\n  border: 0.15rem solid transparent;\r\n  box-sizing: border-box;\r\n  transition: color 0.2s ease-in-out, border 0.2s ease-in-out,\r\n    background-color 0.2s ease-in-out, padding 0.2s ease-in-out;\r\n  font-weight: 600;\r\n  display: flex;\r\n  background: none;\r\n  align-items: center;\r\n  @include fill-button(button, text);\r\n\r\n  &:disabled {\r\n    cursor: not-allowed;\r\n    color: color(button-disabled-text) !important;\r\n    border-color: color(button-disabled) !important;\r\n    background-color: color(button-disabled) !important;\r\n  }\r\n\r\n  &--small {\r\n    font-size: 0.55rem;\r\n    padding: 0.45rem 1.5rem;\r\n  }\r\n\r\n  &--medium {\r\n    padding: 0.75rem 2rem;\r\n    font-size: 0.85rem;\r\n  }\r\n\r\n  &--large {\r\n    padding: 0.95rem 2.2rem;\r\n    font-size: 1.05rem;\r\n  }\r\n\r\n  &--loading {\r\n    @include loading-button(button-loading-spinner);\r\n  }\r\n\r\n  @each $k, $v in $button-colors {\r\n    &--#{$k} {\r\n      $fill: map-get($v, fill);\r\n      &#{$root}--fill {\r\n        @include fill-button(map-get($fill, base), map-get($fill, text));\r\n      }\r\n\r\n      $outline: map-get($v, outline);\r\n      &#{$root}--outline {\r\n        @include outline-button(\r\n          map-get($outline, base),\r\n          map-get($outline, text)\r\n        );\r\n        @include hover-active-focus {\r\n          @include fill-button(map-get($fill, base), map-get($fill, text));\r\n        }\r\n      }\r\n    }\r\n  }\r\n}\r\n",
+                    "data": "@import \"../../styles/utils\";\r\n\r\n@mixin loading-button($color) {\r\n  padding-left: 3.5rem;\r\n  &:before {\r\n    content: \"\";\r\n    position: absolute;\r\n    border: 0.25rem solid color($color);\r\n    border-right-color: transparent;\r\n    border-radius: 100%;\r\n    width: 0.75rem;\r\n    height: 0.75rem;\r\n    left: 2.3rem;\r\n    right: auto;\r\n    animation: spin 0.8s linear infinite;\r\n  }\r\n}\r\n\r\n@mixin fill-button($base, $text) {\r\n  background-color: color($base);\r\n  border-color: color($base);\r\n  color: color($text);\r\n  &:not(:disabled) {\r\n    @include hover-active-focus {\r\n      background-color: dark-color($base);\r\n      border-color: dark-color($base);\r\n    }\r\n  }\r\n}\r\n\r\n@mixin outline-button($base, $text) {\r\n  border-color: color($base);\r\n  color: color($text);\r\n  background: none;\r\n}\r\n\r\n.app-btn {\r\n  $root: &;\r\n  border-radius: 0.55rem;\r\n  border: 0.15rem solid transparent;\r\n  box-sizing: border-box;\r\n  transition: color 0.2s ease-in-out, border 0.2s ease-in-out,\r\n    background-color 0.2s ease-in-out, padding 0.2s ease-in-out;\r\n  font-weight: 600;\r\n  display: flex;\r\n  background: none;\r\n  align-items: center;\r\n  @include fill-button(button, text);\r\n\r\n  &:disabled {\r\n    cursor: not-allowed;\r\n    color: color(button-disabled-text) !important;\r\n    border-color: color(button-disabled) !important;\r\n    background-color: color(button-disabled) !important;\r\n  }\r\n\r\n  &--small {\r\n    font-size: 0.75rem;\r\n    padding: 0.45rem 1.2rem;\r\n  }\r\n\r\n  &--medium {\r\n    padding: 0.75rem 2rem;\r\n    font-size: 0.85rem;\r\n  }\r\n\r\n  &--large {\r\n    padding: 0.95rem 2.2rem;\r\n    font-size: 1.05rem;\r\n  }\r\n\r\n  &--loading {\r\n    @include loading-button(button-loading-spinner);\r\n  }\r\n\r\n  @each $k, $v in $button-colors {\r\n    &--#{$k} {\r\n      $fill: map-get($v, fill);\r\n      &#{$root}--fill {\r\n        @include fill-button(map-get($fill, base), map-get($fill, text));\r\n      }\r\n\r\n      $outline: map-get($v, outline);\r\n      &#{$root}--outline {\r\n        @include outline-button(\r\n          map-get($outline, base),\r\n          map-get($outline, text)\r\n        );\r\n        @include hover-active-focus {\r\n          @include fill-button(map-get($fill, base), map-get($fill, text));\r\n        }\r\n      }\r\n    }\r\n  }\r\n}\r\n",
                     "styleUrl": "./button.component.scss"
                 }
             ],
@@ -228,12 +228,12 @@
                 "defaultValue": "require.context('./', true, /\\.spec\\.ts$/)"
             },
             {
-                "name": "environment",
+                "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/environments/environment.prod.ts",
-                "type": "object",
-                "defaultValue": "{\n  production: true\n}"
+                "file": "src/app/button/button.component.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
             },
             {
                 "name": "environment",
@@ -244,10 +244,42 @@
                 "defaultValue": "{\n  production: false\n}"
             },
             {
+                "name": "environment",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/environments/environment.prod.ts",
+                "type": "object",
+                "defaultValue": "{\n  production: true\n}"
+            },
+            {
+                "name": "Large",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/button/button.component.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
                 "name": "Loading",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/button.stories.ts",
+                "file": "src/app/button/button.component.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Medium",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/button/button.component.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Outline",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/button/button.component.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -255,7 +287,7 @@
                 "name": "Primary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/button.stories.ts",
+                "file": "src/app/button/button.component.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -267,10 +299,10 @@
                 "type": "literal type"
             },
             {
-                "name": "Secondary",
+                "name": "Small",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/button.stories.ts",
+                "file": "src/app/button/button.component.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -278,9 +310,9 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/button.stories.ts",
+                "file": "src/app/button/button.component.stories.ts",
                 "type": "Story<ButtonComponent>",
-                "defaultValue": "(args: ButtonComponent) => ({\n  moduleMetadata: {\n    declarations: [ButtonComponent],\n  },\n  template: `<app-button [loading]=\"loading\" [style]=\"style\" [color]=\"color\">Submit</app-button>`,\n  props: args,\n})"
+                "defaultValue": "(args: ButtonComponent) => ({\n  moduleMetadata: {\n    declarations: [ButtonComponent],\n  },\n  template: `<app-button [loading]=\"loading\" [style]=\"style\" [size]=\"size\" [color]=\"color\">Submit</app-button>`,\n  props: args,\n})"
             }
         ],
         "functions": [],
@@ -304,14 +336,70 @@
                     "type": "literal type"
                 }
             ],
-            "src/environments/environment.prod.ts": [
+            "src/app/button/button.component.stories.ts": [
                 {
-                    "name": "environment",
+                    "name": "Default",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/environments/environment.prod.ts",
-                    "type": "object",
-                    "defaultValue": "{\n  production: true\n}"
+                    "file": "src/app/button/button.component.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Large",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/button/button.component.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Loading",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/button/button.component.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Medium",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/button/button.component.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Outline",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/button/button.component.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Primary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/button/button.component.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Small",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/button/button.component.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/button/button.component.stories.ts",
+                    "type": "Story<ButtonComponent>",
+                    "defaultValue": "(args: ButtonComponent) => ({\n  moduleMetadata: {\n    declarations: [ButtonComponent],\n  },\n  template: `<app-button [loading]=\"loading\" [style]=\"style\" [size]=\"size\" [color]=\"color\">Submit</app-button>`,\n  props: args,\n})"
                 }
             ],
             "src/environments/environment.ts": [
@@ -324,38 +412,14 @@
                     "defaultValue": "{\n  production: false\n}"
                 }
             ],
-            "src/stories/button.stories.ts": [
+            "src/environments/environment.prod.ts": [
                 {
-                    "name": "Loading",
+                    "name": "environment",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/button.stories.ts",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Primary",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/button.stories.ts",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Secondary",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/button.stories.ts",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/button.stories.ts",
-                    "type": "Story<ButtonComponent>",
-                    "defaultValue": "(args: ButtonComponent) => ({\n  moduleMetadata: {\n    declarations: [ButtonComponent],\n  },\n  template: `<app-button [loading]=\"loading\" [style]=\"style\" [color]=\"color\">Submit</app-button>`,\n  props: args,\n})"
+                    "file": "src/environments/environment.prod.ts",
+                    "type": "object",
+                    "defaultValue": "{\n  production: true\n}"
                 }
             ]
         },
@@ -387,6 +451,86 @@
                 "status": "low"
             },
             {
+                "filePath": "src/app/button/button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/button/button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Large",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/button/button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Loading",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/button/button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Medium",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/button/button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Outline",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/button/button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Primary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/button/button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Small",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/button/button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
                 "filePath": "src/app/button/button.component.ts",
                 "type": "component",
                 "linktype": "component",
@@ -411,46 +555,6 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "environment",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/button.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Loading",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/button.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Primary",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/button.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Secondary",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/button.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Template",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
