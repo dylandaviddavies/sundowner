@@ -1,3 +1,7 @@
+html {
+    @include define-theme-variables(map-get($themes, light));
+}
+
 @each $k, $v in $themes {
     html[data-theme='#{$k}'] {
         @include define-theme-variables($v);

@@ -1,22 +1,95 @@
-@import '../../styles/utils';
+@import "../../styles/utils";
+
+@mixin loading-button($color) {
+  padding-left: 3.5rem;
+  &:before {
+    content: "";
+    position: absolute;
+    border: 0.25rem solid color($color);
+    border-right-color: transparent;
+    border-radius: 100%;
+    width: 0.75rem;
+    height: 0.75rem;
+    left: 2.3rem;
+    right: auto;
+    animation: spin 0.8s linear infinite;
+  }
+}
+
+@mixin fill-button($base, $text) {
+  background-color: color($base);
+  border-color: color($base);
+  color: color($text);
+  &:not(:disabled) {
+    @include hover-active-focus {
+      background-color: dark-color($base);
+      border-color: dark-color($base);
+    }
+  }
+}
+
+@mixin outline-button($base, $text) {
+  border-color: color($base);
+  color: color($text);
+  background: none;
+}
 
 .app-btn {
-    border-radius: 3rem;
-    border:none;
-    box-sizing: border-box;
-    padding: .6rem 1.8rem;
-    font-size: 1.2rem;
-    text-transform: uppercase;
-    letter-spacing:.1rem;
-    font-weight:bold;
-    transition: color .2s, background-color .2s;
-    @each $k in $colors {
-        &-#{$k} {
-            background-color: color($k);
-            color:#fff;
-            @include hover-active-focus {
-                background-color: dark-color($k);
-            }
+  $root: &;
+  border-radius: 0.55rem;
+  border: 0.15rem solid transparent;
+  box-sizing: border-box;
+  transition: color 0.2s ease-in-out, border 0.2s ease-in-out,
+    background-color 0.2s ease-in-out, padding 0.2s ease-in-out;
+  font-weight: 600;
+  display: flex;
+  background: none;
+  align-items: center;
+  @include fill-button(button, text);
+
+  &:disabled {
+    cursor: not-allowed;
+    color: color(button-disabled-text) !important;
+    border-color: color(button-disabled) !important;
+    background-color: color(button-disabled) !important;
+  }
+
+  &--small {
+    font-size: 0.75rem;
+    padding: 0.45rem 1.2rem;
+  }
+
+  &--medium {
+    padding: 0.75rem 2rem;
+    font-size: 0.85rem;
+  }
+
+  &--large {
+    padding: 0.95rem 2.2rem;
+    font-size: 1.05rem;
+  }
+
+  &--loading {
+    @include loading-button(button-loading-spinner);
+  }
+
+  @each $k, $v in $button-colors {
+    &--#{$k} {
+      $fill: map-get($v, fill);
+      &#{$root}--fill {
+        @include fill-button(map-get($fill, base), map-get($fill, text));
+      }
+
+      $outline: map-get($v, outline);
+      &#{$root}--outline {
+        @include outline-button(
+          map-get($outline, base),
+          map-get($outline, text)
+        );
+        @include hover-active-focus {
+          @include fill-button(map-get($fill, base), map-get($fill, text));
         }
+      }
     }
+  }
 }

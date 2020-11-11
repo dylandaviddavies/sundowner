@@ -1,54 +1,77 @@
-@import url(https://fonts.googleapis.com/css2?family=Roboto&display=swap);
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap");
 
 $fonts: (
-    body: 'Roboto',
-    heading: 'Roboto',
-    button: 'Roboto'
+  body: "Open Sans",
+  heading: "Open Sans",
+  button: "Open Sans",
 );
 
 $font-sizes: (
-    body: 1.6rem,
-    h1: 3.2rem,
-    h2: 3rem,
-    h3: 2.8rem,
-    h4: 2.6rem,
-    h5: 2.4rem
+  body: 1.6rem,
+  h1: 3.2rem,
+  h2: 3rem,
+  h3: 2.8rem,
+  h4: 2.6rem,
+  h5: 2.4rem,
 );
 
-$colors: (
-    bg,
-    primary,
-    text,
-    text-secondary,
-); 
+$colors: (bg, primary, text, text-secondary);
 
-$imgs: (
-    hero
-); 
+$button-colors: (
+  default: (
+    fill: (
+      base: button,
+      text: text,
+    ),
+    outline: (
+      base: button,
+      text: text,
+    ),
+  ),
+  primary: (
+    fill: (
+      base: primary,
+      text: "white",
+    ),
+    outline: (
+      base: primary,
+      text: primary,
+    ),
+  ),
+);
+
+$imgs: (hero);
 
 $themes: (
-    light: (
-        color: (
-            bg: #fff,
-            primary: #08c,
-            primary-dark: darken(#08c, 10%),
-            text: #2b2b2b,
-            text-secondary: #999,
-        ),
-        img: (
-            hero: url('../assets/img/hero-light.svg'),
-        )
+  light: (
+    color: (
+      "white": #fff,
+      bg: #fff,
+      primary: #1a73e8,
+      primary-dark: darken(#1a73e8, 10%),
+      text: #2b2b2b,
+      text-secondary: #999,
+      button: rgb(239, 239, 239),
+      button-dark: darken(rgb(239, 239, 239), 10%),
+      button-disabled: rgb(230, 230, 230),
+      button-disabled-text: #999,
+      button-loading-spinner: #999,
     ),
-    dark: (
-        color: (
-            bg: #1d1d1d,
-            primary: #ce6814,
-            primary-dark: darken(#ce6814, 10%),
-            text: #fff,
-            text-secondary: #999,
-        ),
-        img: (
-            hero: url('../assets/img/hero-dark.svg'),
-        )
+    img: (
+      hero: url("../assets/img/hero-light.svg"),
     ),
+  ),
+  dark: (
+    color: (
+      "white": #fff,
+      bg: #1d1d1d,
+      primary: #ce6814,
+      primary-dark: darken(#ce6814, 10%),
+      text: #fff,
+      text-secondary: #999,
+    ),
+    img: (
+      hero: url("../assets/img/hero-dark.svg"),
+    ),
+  ),
 );
