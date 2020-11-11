@@ -1,3 +1,5 @@
+@import "../../styles/utils";
+
 .app-checkbox {
   $root: &;
   position: relative;
@@ -16,14 +18,15 @@
     &:before {
       content: "done";
     }
-    animation: burst 0.2s 1 ease-out;
-    background-color: #999;
+    animation: checkbox-burst 0.2s 1 ease-out;
+    background-color: color(checkbox-checked);
+    border-color: color(checkbox-checked);
   }
 
   &__icon {
-    transition: background-color 0.2s ease-in-out;
+    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
     color: #fff;
-    border: 0.15rem solid #999;
+    border: 0.15rem solid color(checkbox);
     border-radius: 0.2rem;
     font-family: "Material Icons";
     width: 1rem;
