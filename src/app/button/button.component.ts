@@ -16,7 +16,7 @@ export class ButtonComponent {
   size: 'small' | 'medium' | 'large' = 'medium';
 
   @Input()
-  loading = false;
+  loading: boolean;
 
   get className(): string {
     return `

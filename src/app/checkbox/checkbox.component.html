@@ -1,0 +1,5 @@
+<label class="app-checkbox">
+    <input [name]="name" [(ngModel)]="checked" (ngModelChange)="checkedChange" type="checkbox">
+    <span class="material-icons app-checkbox__icon" aria-hidden="true"></span>
+    <ng-content></ng-content>
+</label>

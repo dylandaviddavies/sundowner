@@ -1,0 +1,37 @@
+.app-checkbox {
+  $root: &;
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+  > input {
+    opacity: 0;
+    width: 0px;
+    height: 0px;
+    position: absolute;
+  }
+
+  > :checked ~ * {
+    &:before {
+      content: "done";
+    }
+    animation: burst 0.2s 1 ease-out;
+    background-color: #999;
+  }
+
+  &__icon {
+    transition: background-color 0.2s ease-in-out;
+    color: #fff;
+    border: 0.15rem solid #999;
+    border-radius: 0.2rem;
+    font-family: "Material Icons";
+    width: 1rem;
+    font-size: 1.2rem;
+    height: 1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 0.8rem;
+  }
+}
